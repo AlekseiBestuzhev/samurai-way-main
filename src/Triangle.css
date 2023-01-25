@@ -1,0 +1,7 @@
+.Triangle-body {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 10px solid transparent;
+    border-bottom: 15px solid #9f3939;
+    margin-right: 15px;
+}
