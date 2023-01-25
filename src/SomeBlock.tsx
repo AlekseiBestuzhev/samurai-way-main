@@ -1,9 +1,10 @@
 import React from 'react';
+import './SomeBlock.css'
 
 const SomeBlock = () => {
     return (
         <div>
-            <h5>Block</h5>
+            <h5 className='SomeBlock-title'>Block</h5>
         </div>
     );
 }
