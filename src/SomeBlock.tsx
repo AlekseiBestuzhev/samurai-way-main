@@ -7,6 +7,8 @@ const SomeBlock = () => {
         <div>
             <h5 className='SomeBlock-title'>Block</h5>
             <Triangle />
+            <Triangle />
+            <Triangle />
         </div>
     );
 }

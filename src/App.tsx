@@ -10,6 +10,8 @@ const App = () => {
                 <h4>It's just the beginning</h4>
             </div>
             <SomeBlock/>
+            <p>Lorem ipsum dolar sit amet</p>
+            <SomeBlock/>
         </div>
     );
 }
