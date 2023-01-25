@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import SomeBlock from "./SomeBlock";
+import Line from "./Line";
 
 const App = () => {
     return (
@@ -10,7 +11,9 @@ const App = () => {
                 <h4>It's just the beginning</h4>
             </div>
             <SomeBlock/>
+            <Line/>
             <p>Lorem ipsum dolar sit amet</p>
+            <Line/>
             <SomeBlock/>
         </div>
     );
