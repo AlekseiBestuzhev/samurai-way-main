@@ -1,24 +1,33 @@
 .app-wrapper {
-  margin: 0 auto;
-  max-width: 1150px;
-  display: grid;
+    margin: 0 auto;
+    max-width: 1150px;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+    'header header'
+    'sidebar content';
+    grid-gap: 10px;
 }
 
 .header {
-  background-color: #d9d9d9;
-  padding: 15px;
+    grid-area: header;
+    background-color: #d9d9d9;
+    padding: 15px;
 }
 
 header img {
-  height: 30px;
-  width: auto;
+    height: 30px;
+    width: auto;
 }
 
 .sidebar {
-  background-color: #333333;
-  color: #ffffff;
+    grid-area: sidebar;
+    background-color: #333333;
+    color: #ffffff;
 }
 
 .content {
-  background-color: #ffffff;
+    grid-area: content;
+    background-color: #ffffff;
 }
