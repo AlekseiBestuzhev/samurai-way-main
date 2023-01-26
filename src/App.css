@@ -24,10 +24,19 @@ header img {
 .sidebar {
     grid-area: sidebar;
     background-color: #333333;
-    color: #ffffff;
+    padding: 15px;
 }
 
 .content {
     grid-area: content;
     background-color: #ffffff;
+}
+
+li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
 }
