@@ -30,7 +30,14 @@ const App = () => {
                     </ul>
                 </nav>
             </aside>
-            <main className={'content'}>Main</main>
+            <main className={'content'}>
+                <img className={'page-label'} src={'https://wallup.net/wp-content/uploads/2016/01/257350-galaxy-NASA-space-Milky_Way.jpg'} alt={'Stars'}/>
+                <section>About person</section>
+                <div>My posts</div>
+                <div>New post</div>
+                <div>Post 1</div>
+                <div>Post 2</div>
+            </main>
         </div>
     );
 }
