@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
+import Header from "./components/Header";
 
 const App = () => {
     return (
         <div className="app-wrapper">
-            <header className={'header'}>
-                <img
-                    src={'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/NASA_Worm_logo.svg/1200px-NASA_Worm_logo.svg.png'}
-                    alt={'Logo'}/>
-            </header>
+            <Header/>
             <aside className={'sidebar'}>
                 <nav>
                     <ul>
