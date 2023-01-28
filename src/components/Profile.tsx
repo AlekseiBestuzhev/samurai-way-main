@@ -1,4 +1,5 @@
 import React from "react";
+import PostsBlock from "./PostsBlock";
 
 const Profile = () => {
     return (
@@ -13,10 +14,7 @@ const Profile = () => {
                     <p>beginner frontend developer</p>
                 </div>
             </section>
-            <div>My posts</div>
-            <div>New post</div>
-            <div>Post 1</div>
-            <div>Post 2</div>
+            <PostsBlock/>
         </main>
     )
 }

@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
 }
+
+.container {
+    padding: 0 40px;
+}
+
 .app-wrapper {
     margin: 0 auto;
     max-width: 1150px;
