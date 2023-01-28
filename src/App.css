@@ -34,10 +34,17 @@ header img {
 
 .login-button {
     padding: 5px 10px;
-    line-height: 1.5;
-    color: #ffffff;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #192f3a;
     text-decoration: none;
-    background-color: #212121;
+    background-color: #ffffff;
+    transition: 0.5s;
+}
+
+.login-button:hover {
+    background-color: #e13838;
+    color: #ffffff;
 }
 
 .sidebar {
