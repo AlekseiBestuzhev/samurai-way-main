@@ -22,11 +22,22 @@
     grid-area: header;
     background-color: #d9d9d9;
     padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header img {
     height: 30px;
     width: auto;
+}
+
+.login-button {
+    padding: 5px 10px;
+    line-height: 1.5;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #212121;
 }
 
 .sidebar {
@@ -92,9 +103,4 @@ p {
     margin: 0;
 }
 
-.login-button {
-    padding: 5px 10px;
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #212121;
-}
+
