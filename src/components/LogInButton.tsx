@@ -2,7 +2,7 @@ import React from "react";
 
 const LogInButton = () => {
     return (
-        <a href={'#'} className={'login-button'}>Log In</a>
+        <a href={'#'} className={'login-button'}>LOGIN</a>
     )
 }
 
