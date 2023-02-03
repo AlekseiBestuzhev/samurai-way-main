@@ -1,5 +1,6 @@
 import React from "react";
 import { NewPost } from "./NewPost/NewPost";
+import { Post } from "./Post/Post";
 import cls from "./PostsBlock.module.css";
 
 const PostsBlock = () => {
@@ -7,8 +8,7 @@ const PostsBlock = () => {
 		<div className={'container'}>
 			<NewPost />
 			<div className={cls.title}>My posts</div>
-			<div>Post 1</div>
-			<div>Post 2</div>
+			<Post name='Tony Stark' title="How are you?" />
 		</div>
 	)
 }

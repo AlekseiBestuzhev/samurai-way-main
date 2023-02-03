@@ -1,0 +1,26 @@
+.post {
+	display: flex;
+	gap: 50px;
+	margin-bottom: 30px;
+}
+
+.ava {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.sender {}
+
+.text {
+	font-weight: 200;
+	font-size: 30px;
+	margin-bottom: 15px;
+}
+
+.name {
+	font-weight: 600;
+	font-size: 20px;
+	color: #333;
+}
