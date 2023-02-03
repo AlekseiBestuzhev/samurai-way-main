@@ -9,6 +9,7 @@ const PostsBlock = () => {
 			<NewPost />
 			<div className={cls.title}>My posts</div>
 			<Post name='Tony Stark' title="How are you?" />
+			<Post name='Tony Stark' title="You're already here?" />
 		</div>
 	)
 }
