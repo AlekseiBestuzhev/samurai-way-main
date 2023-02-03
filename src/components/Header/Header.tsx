@@ -1,6 +1,6 @@
 import React from "react";
 import cls from './Header.module.css';
-import LoginButton from "../LoginButton";
+import LoginButton from "./LoginButton/LoginButton";
 
 const Header = () => {
 	return (

@@ -1,4 +1,4 @@
-.login-button {
+.loginButton {
 	padding: 5px 15px;
 	font-size: 14px;
 	line-height: 1.5;
@@ -10,7 +10,7 @@
 	transition: 0.5s;
 }
 
-.login-button:hover {
+.loginButton:hover {
 	background-color: #e33f3f;
 	color: #ffffff;
 }
