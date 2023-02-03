@@ -1,0 +1,20 @@
+.block {
+	background-color: #cfcfcf;
+	padding: 20px 30px;
+}
+
+.textarea {
+	width: 100%;
+	height: 80px;
+	margin: 15px 0;
+	padding: 10px;
+	background-color: transparent;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 18px;
+}
+
+.textarea::placeholder {
+	color: #fff;
+}
