@@ -7,7 +7,8 @@ const PostsBlock = () => {
 	return (
 		<div className={'container'}>
 			<NewPost />
-			<div className={cls.title}>My posts</div>
+			<hr />
+			<div className={cls.title}>My wall</div>
 			<Post name='Tony Stark' title="How are you?" />
 			<Post name='Tony Stark' title="You're already here?" />
 		</div>

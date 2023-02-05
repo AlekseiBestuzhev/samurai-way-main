@@ -1,20 +1,44 @@
 .block {
-	background-color: #cfcfcf;
-	padding: 20px 30px;
+	display: flex;
+	column-gap: 15px;
+	margin-bottom: 10px;
+	padding: 20px 0px;
 }
 
 .textarea {
-	width: 100%;
+	flex: 1 1 auto;
 	height: 80px;
-	margin: 15px 0;
-	padding: 10px;
-	background-color: transparent;
-	border: 2px solid #fff;
-	border-radius: 5px;
-	color: #fff;
+	padding: 15px 20px;
+	background-color: #ededed;
+	border: none;
+	border-radius: 10px;
 	font-size: 18px;
+	resize: none;
 }
 
 .textarea::placeholder {
-	color: #fff;
+	font-size: 16px;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.button {
+	padding: 8px 15px;
+	text-align: center;
+	border: none;
+	font-weight: 600;
+	border-radius: 5px;
+	background-color: #ededed;
+	color: #767676;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.button:hover {
+	background-color: #e33f3f;
+	color: #ffffff;
 }
