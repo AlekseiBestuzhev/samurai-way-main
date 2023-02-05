@@ -4,7 +4,7 @@ import PostsBlock from "./PostsBlock/PostsBlock";
 
 const Profile = () => {
 	return (
-		<main className={cls.content}>
+		<>
 			<img className={cls.header}
 				src={'https://wallup.net/wp-content/uploads/2016/01/257350-galaxy-NASA-space-Milky_Way.jpg'}
 				alt={'Stars'} />
@@ -16,7 +16,7 @@ const Profile = () => {
 				</div>
 			</section>
 			<PostsBlock />
-		</main>
+		</>
 	)
 }
 
