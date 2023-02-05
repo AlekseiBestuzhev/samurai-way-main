@@ -12,6 +12,7 @@ const App = () => {
 			<Sidebar />
 			<main className={'content'}>
 				<Profile />
+				<Messages />
 			</main>
 		</div>
 	);
