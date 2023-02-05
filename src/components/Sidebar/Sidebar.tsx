@@ -17,7 +17,7 @@ const Sidebar = () => {
 						<NavLink className={cls.link} to={'/news'}>News</NavLink>
 					</li>
 					<li>
-						<a className={cls.link} href={'1#'}>Music</a>
+						<NavLink className={cls.link} to={'/music'}>Music</NavLink>
 					</li>
 					<li>
 						<a className={cls.link} href={'1#'}>Settings</a>
