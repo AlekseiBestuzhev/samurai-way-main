@@ -20,7 +20,7 @@ const Sidebar = () => {
 						<NavLink className={cls.link} to={'/music'}>Music</NavLink>
 					</li>
 					<li>
-						<a className={cls.link} href={'1#'}>Settings</a>
+						<NavLink className={cls.link} to={'/settings'}>Settings</NavLink>
 					</li>
 				</ul>
 			</nav>
