@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import cls from './Sidebar.module.css';
 
 const Sidebar = () => {
@@ -7,10 +8,10 @@ const Sidebar = () => {
 			<nav>
 				<ul>
 					<li>
-						<a className={cls.link} href={'1#'}>Profile</a>
+						<NavLink className={cls.link} to={'/profile'}>Profile</NavLink>
 					</li>
 					<li>
-						<a className={cls.link} href={'1#'}>Messages</a>
+						<NavLink className={cls.link} to={'/messages'}>Messages</NavLink>
 					</li>
 					<li>
 						<a className={cls.link} href={'1#'}>News</a>
