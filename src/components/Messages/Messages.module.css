@@ -1,3 +1,7 @@
+.title {
+	margin-bottom: 15px;
+}
+
 .dialogs {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -6,13 +10,19 @@
 .dialogItems {
 	display: flex;
 	flex-direction: column;
-	row-gap: 30px;
-	border-right: 2px solid #333;
+	row-gap: 10px;
+	border-right: 3px solid #767676;
 }
 
 .dialog {
+	display: block;
+	padding: 15px 0;
+	color: #333;
+	transition: 0.5s;
 	font-size: 18px;
 	font-weight: 600;
 }
 
-.dialogContent {}
+.dialogContent {
+	padding: 0 30px;
+}

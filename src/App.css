@@ -10,6 +10,11 @@
 	padding: 0 100px;
 }
 
+.additionalContainer {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
 .app-wrapper {
 	margin: 0 auto;
 	max-width: 1150px;
