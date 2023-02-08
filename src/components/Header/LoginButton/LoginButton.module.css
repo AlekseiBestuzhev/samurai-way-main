@@ -6,11 +6,6 @@
 	color: #767676;
 	text-decoration: none;
 	background-color: #ffffff;
-	border-radius: 3px;
+	border-radius: 5px;
 	transition: 0.5s;
-}
-
-.loginButton:hover {
-	background-color: #e33f3f;
-	color: #ffffff;
 }

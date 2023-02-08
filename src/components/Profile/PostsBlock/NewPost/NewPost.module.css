@@ -26,7 +26,7 @@
 	justify-content: space-between;
 }
 
-.button {
+.newPostButton {
 	padding: 8px 15px;
 	text-align: center;
 	border: none;
@@ -36,9 +36,4 @@
 	color: #767676;
 	cursor: pointer;
 	transition: 0.5s;
-}
-
-.button:hover {
-	background-color: #e33f3f;
-	color: #ffffff;
 }

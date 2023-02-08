@@ -30,9 +30,14 @@
 .active::after {
 	content: '';
 	height: 100%;
-	width: 5px;
+	width: 3px;
 	background-color: #e33f3f;
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+[class*='Button']:hover {
+	background-color: #e33f3f;
+	color: #ffffff;
 }
