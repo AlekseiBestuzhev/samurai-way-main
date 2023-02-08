@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
 
 type DialogType = {
@@ -31,9 +32,10 @@ export const Messages = () => {
 					<Dialog name='Blinchik' />
 				</div>
 				<div className={cls.dialogContent}>
-					<div>Fucking</div>
-					<div>dungeon</div>
-					<div>master</div>
+					<FriendMessage text='Hello, my friend' />
+					<FriendMessage text='How is it going?' />
+					<FriendMessage text='When we will meet?' />
+					<FriendMessage text='Maybe tomorrow?' />
 				</div>
 			</div >
 		</div>
