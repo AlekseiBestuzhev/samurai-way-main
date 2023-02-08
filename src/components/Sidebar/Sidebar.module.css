@@ -25,3 +25,18 @@ nav ul li {
 .link:hover {
 	color: #e33f3f;
 }
+
+.activeLink {
+	background-color: #e33f3f1e;
+	position: relative;
+}
+
+.activeLink::after {
+	content: '';
+	height: 100%;
+	width: 3px;
+	background-color: #e33f3f;
+	position: absolute;
+	top: 0;
+	right: 0;
+}

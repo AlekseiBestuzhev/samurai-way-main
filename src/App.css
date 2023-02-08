@@ -22,21 +22,6 @@
 	grid-gap: 10px;
 }
 
-.active {
-	background-color: #e33f3f1e;
-	position: relative;
-}
-
-.active::after {
-	content: '';
-	height: 100%;
-	width: 3px;
-	background-color: #e33f3f;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
 [class*='Button']:hover {
 	background-color: #e33f3f;
 	color: #ffffff;

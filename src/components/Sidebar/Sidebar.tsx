@@ -8,19 +8,34 @@ const Sidebar = () => {
 			<nav>
 				<ul>
 					<li>
-						<NavLink className={cls.link} to={'/profile'}>Profile</NavLink>
+						<NavLink
+							activeClassName={cls.activeLink}
+							className={cls.link}
+							to={'/profile'}>Profile</NavLink>
 					</li>
 					<li>
-						<NavLink className={cls.link} to={'/messages'}>Messages</NavLink>
+						<NavLink
+							activeClassName={cls.activeLink}
+							className={cls.link}
+							to={'/messages'}>Messages</NavLink>
 					</li>
 					<li>
-						<NavLink className={cls.link} to={'/news'}>News</NavLink>
+						<NavLink
+							activeClassName={cls.activeLink}
+							className={cls.link}
+							to={'/news'}>News</NavLink>
 					</li>
 					<li>
-						<NavLink className={cls.link} to={'/music'}>Music</NavLink>
+						<NavLink
+							activeClassName={cls.activeLink}
+							className={cls.link}
+							to={'/music'}>Music</NavLink>
 					</li>
 					<li>
-						<NavLink className={cls.link} to={'/settings'}>Settings</NavLink>
+						<NavLink
+							activeClassName={cls.activeLink}
+							className={cls.link}
+							to={'/settings'}>Settings</NavLink>
 					</li>
 				</ul>
 			</nav>
