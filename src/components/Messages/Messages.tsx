@@ -10,22 +10,28 @@ export const Messages = () => {
 			<div className={cls.dialogs}>
 				<div className={cls.dialogItems}>
 					<NavLink
-						to='/dialogs/Ilysha'
+						to='/messages/Ilysha'
+						activeClassName={cls.activeLink}
 						className={cls.dialog}>Ilysha</NavLink>
 					<NavLink
-						to='/dialogs/Dimasik'
+						to='/messages/Dimasik'
+						activeClassName={cls.activeLink}
 						className={cls.dialog}>Dimasik</NavLink>
 					<NavLink
-						to='/dialogs/Rymsky'
+						to='/messages/Rymsky'
+						activeClassName={cls.activeLink}
 						className={cls.dialog}>Rymsky</NavLink>
 					<NavLink
-						to='/dialogs/Korepan'
+						to='/messages/Korepan'
+						activeClassName={cls.activeLink}
 						className={cls.dialog}>Korepan</NavLink>
 					<NavLink
-						to='/dialogs/David'
+						to='/messages/David'
+						activeClassName={cls.activeLink}
 						className={cls.dialog}>David</NavLink>
 					<NavLink
-						to='/dialogs/Blinchik'
+						to='/messages/Blinchik'
+						activeClassName={cls.activeLink}
 						className={cls.dialog}>Blinchik</NavLink>
 				</div>
 				<div className={cls.dialogContent}>
