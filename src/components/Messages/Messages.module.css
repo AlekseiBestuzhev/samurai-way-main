@@ -1,5 +1,6 @@
 .title {
-	margin-bottom: 15px;
+	margin: 0 0 15px 0;
+	padding: 0 0 0 80px;
 }
 
 .dialogs {
@@ -16,11 +17,12 @@
 
 .dialog {
 	display: block;
-	padding: 15px 0;
+	padding: 15px 0 15px 80px;
 	color: #333;
 	transition: 0.5s;
 	font-size: 18px;
 	font-weight: 600;
+	text-decoration: none;
 }
 
 .dialogContent {
