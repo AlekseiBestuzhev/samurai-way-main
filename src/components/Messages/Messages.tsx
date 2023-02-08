@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import cls from './Messages.module.css'
+
+type DialogType = {
+	name: string,
+}
+
+const Dialog: FC<DialogType> = (props): JSX.Element => {
+	return (
+		<NavLink
+			to={`/messages/${props.name.toLocaleLowerCase()}`}
+			activeClassName={cls.activeLink}
+			className={cls.dialog}
+		>{props.name}</NavLink>
+	)
+}
 
 export const Messages = () => {
 
@@ -9,30 +23,12 @@ export const Messages = () => {
 			<h2 className={cls.title}>Dialogs</h2>
 			<div className={cls.dialogs}>
 				<div className={cls.dialogItems}>
-					<NavLink
-						to='/messages/Ilysha'
-						activeClassName={cls.activeLink}
-						className={cls.dialog}>Ilysha</NavLink>
-					<NavLink
-						to='/messages/Dimasik'
-						activeClassName={cls.activeLink}
-						className={cls.dialog}>Dimasik</NavLink>
-					<NavLink
-						to='/messages/Rymsky'
-						activeClassName={cls.activeLink}
-						className={cls.dialog}>Rymsky</NavLink>
-					<NavLink
-						to='/messages/Korepan'
-						activeClassName={cls.activeLink}
-						className={cls.dialog}>Korepan</NavLink>
-					<NavLink
-						to='/messages/David'
-						activeClassName={cls.activeLink}
-						className={cls.dialog}>David</NavLink>
-					<NavLink
-						to='/messages/Blinchik'
-						activeClassName={cls.activeLink}
-						className={cls.dialog}>Blinchik</NavLink>
+					<Dialog name='Ilysha' />
+					<Dialog name='Dimasik' />
+					<Dialog name='Rymsky' />
+					<Dialog name='Korepan' />
+					<Dialog name='David' />
+					<Dialog name='Blinchik' />
 				</div>
 				<div className={cls.dialogContent}>
 					<div>Fucking</div>
