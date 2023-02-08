@@ -1,21 +1,7 @@
-import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { Dialog } from './Dialog/Dialog';
 import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
-
-type DialogType = {
-	name: string,
-}
-
-const Dialog: FC<DialogType> = (props): JSX.Element => {
-	return (
-		<NavLink
-			to={`/messages/${props.name.toLocaleLowerCase()}`}
-			activeClassName={cls.activeLink}
-			className={cls.dialog}
-		>{props.name}</NavLink>
-	)
-}
 
 export const Messages = () => {
 

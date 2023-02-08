@@ -1,0 +1,28 @@
+.dialog {
+	display: block;
+	padding: 15px 0 15px 80px;
+	color: #333;
+	transition: 0.5s;
+	font-size: 18px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.dialog:hover {
+	color: #2746e1;
+}
+
+.activeLink {
+	background-color: #2746e12b;
+	position: relative;
+}
+
+.activeLink::after {
+	content: '';
+	height: 100%;
+	width: 3px;
+	background-color: #2746e1;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
