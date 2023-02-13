@@ -1,7 +1,8 @@
 import React from 'react';
 import cls from './Post.module.css';
 
-type PostType = {
+export type PostType = {
+	id: number,
 	title: string,
 	name: string
 }
