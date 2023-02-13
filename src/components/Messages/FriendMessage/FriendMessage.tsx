@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import cls from './FriendMessage.module.css'
 
-type FriendMessageType = {
+export type FriendMessageType = {
+	id: number,
 	text: string
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Dialog, DialogType} from './Dialog/Dialog';
-import { FriendMessage } from './FriendMessage/FriendMessage';
+import {FriendMessage, FriendMessageType} from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
 
 export const Messages = () => {
@@ -10,8 +10,15 @@ const dialogsData: DialogType[] = [
 	{id: 3, name: 'Rymsky'},
 	{id: 4, name: 'Korepan'},
 	{id: 5, name: 'David'},
-	{id: 6, name: 'Blinchik'},
-]
+	{id: 6, name: 'Blinchik'}
+];
+
+const messagesData: FriendMessageType[] = [
+	{id: 1, text: 'Hello, my friend'},
+	{id: 2, text: 'How is it going?'},
+	{id: 3, text: 'When we will meet?'},
+	{id: 4, text: 'Maybe tomorrow?'}
+];
 	return (
 		<div className='additionalContainer'>
 			<h2 className={cls.title}>Dialogs</h2>
@@ -25,10 +32,10 @@ const dialogsData: DialogType[] = [
 					<Dialog id={6} name='Blinchik' />
 				</div>
 				<div className={cls.dialogContent}>
-					<FriendMessage text='Hello, my friend' />
-					<FriendMessage text='How is it going?' />
-					<FriendMessage text='When we will meet?' />
-					<FriendMessage text='Maybe tomorrow?' />
+					<FriendMessage id={1} text='Hello, my friend' />
+					<FriendMessage id={2} text='How is it going?' />
+					<FriendMessage id={3} text='When we will meet?' />
+					<FriendMessage id={4} text='Maybe tomorrow?' />
 				</div>
 			</div >
 		</div>
