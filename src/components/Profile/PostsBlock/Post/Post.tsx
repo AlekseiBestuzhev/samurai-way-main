@@ -4,7 +4,8 @@ import cls from './Post.module.css';
 export type PostType = {
 	id: number,
 	title: string,
-	name: string
+	name: string,
+	likes: number
 }
 
 export const Post = (props: PostType) => {
@@ -18,7 +19,7 @@ export const Post = (props: PostType) => {
 			</div>
 			<div className={cls.likes}>
 				<div className={cls.likeIcon}></div>
-				<span className={cls.likesCount}>{props.id}</span>
+				<span className={cls.likesCount}>{props.likes}</span>
 			</div>
 		</div>
 	);
