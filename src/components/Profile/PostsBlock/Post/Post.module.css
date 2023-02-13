@@ -36,4 +36,25 @@
 }
 
 .likeIcon {
+	width: 29px;
+	height: 20px;
+	position: relative;
+}
+
+.likeIcon::before,
+.likeIcon::after {
+	content: '';
+	height: 20px;
+	width: 12px;
+	border-radius: 6px 6px 0 0;
+	background-color: #2746e1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: rotate(-45deg);
+}
+
+.likeIcon::after {
+	transform: rotate(45deg);
+	left: 6px;
 }

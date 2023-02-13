@@ -17,7 +17,7 @@ export const Post = (props: PostType) => {
 				<p className={cls.name}>{props.name}</p>
 			</div>
 			<div className={cls.likes}>
-				<div className={cls.likeIcon}>Like</div>
+				<div className={cls.likeIcon}></div>
 				<span className={cls.likesCount}>{props.id}</span>
 			</div>
 		</div>
