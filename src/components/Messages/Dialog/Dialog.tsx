@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import cls from './Dialog.module.css'
 
 type DialogType = {
-	name: string,
+	id: number,
+	name: string
 }
 
 export const Dialog: FC<DialogType> = (props): JSX.Element => {
 	return (
 		<NavLink
-			to={`/messages/${props.name.toLocaleLowerCase()}`}
+			to={`/messages/${props.id}`}
 			activeClassName={cls.activeLink}
 			className={cls.dialog}
 		>{props.name}</NavLink>

@@ -10,12 +10,12 @@ export const Messages = () => {
 			<h2 className={cls.title}>Dialogs</h2>
 			<div className={cls.dialogs}>
 				<div className={cls.dialogItems}>
-					<Dialog name='Ilysha' />
-					<Dialog name='Dimasik' />
-					<Dialog name='Rymsky' />
-					<Dialog name='Korepan' />
-					<Dialog name='David' />
-					<Dialog name='Blinchik' />
+					<Dialog id={1} name='Ilysha' />
+					<Dialog id={2} name='Dimasik' />
+					<Dialog id={3} name='Rymsky' />
+					<Dialog id={4} name='Korepan' />
+					<Dialog id={5} name='David' />
+					<Dialog id={6} name='Blinchik' />
 				</div>
 				<div className={cls.dialogContent}>
 					<FriendMessage text='Hello, my friend' />
