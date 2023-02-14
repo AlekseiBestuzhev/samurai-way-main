@@ -2,7 +2,7 @@ import React from 'react';
 import cls from './Post.module.css';
 
 export type PostType = {
-	id: number,
+	id: string,
 	title: string,
 	name: string,
 	likes: number

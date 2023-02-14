@@ -1,10 +1,11 @@
 import React from "react";
+import { v1 } from "uuid";
 import { NewPost } from "./NewPost/NewPost";
 import { Post } from "./Post/Post";
 import cls from "./PostsBlock.module.css";
 
 type PostType = {
-	id: number,
+	id: string,
 	name: string,
 	title: string,
 	likes: number
@@ -12,8 +13,8 @@ type PostType = {
 
 const PostsBlock = () => {
 	const postsData: PostType[] = [
-		{ id: 1, name: 'Tony Stark', title: 'How are you?', likes: 6 },
-		{ id: 2, name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
+		{ id: v1(), name: 'Tony Stark', title: 'How are you?', likes: 6 },
+		{ id: v1(), name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
 	];
 
 	const postsList: JSX.Element | JSX.Element[] =
