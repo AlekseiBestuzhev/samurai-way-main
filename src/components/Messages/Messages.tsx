@@ -38,10 +38,7 @@ export const Messages = () => {
 					{dialogsList}
 				</div>
 				<div className={cls.dialogContent}>
-					<FriendMessage id={1} text='Hello, my friend' />
-					<FriendMessage id={2} text='How is it going?' />
-					<FriendMessage id={3} text='When we will meet?' />
-					<FriendMessage id={4} text='Maybe tomorrow?' />
+					{dialogMessagesList}
 				</div>
 			</div>
 		</div>
