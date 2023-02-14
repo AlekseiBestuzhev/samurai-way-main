@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import cls from './FriendMessage.module.css'
 
 export type FriendMessageType = {
-	id: number,
+	id: string,
 	text: string
 }
 

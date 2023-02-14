@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import cls from './Dialog.module.css'
 
 export type DialogType = {
-	id: number,
+	id: string,
 	name: string
 }
 
