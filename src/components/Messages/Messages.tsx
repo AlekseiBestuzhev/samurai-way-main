@@ -6,12 +6,12 @@ import cls from './Messages.module.css'
 
 export const Messages = () => {
 	const dialogsData: DialogType[] = [
-		{ id: v1(), name: 'Ilysha' },
-		{ id: v1(), name: 'Dimasik' },
-		{ id: v1(), name: 'Rymsky' },
-		{ id: v1(), name: 'Korepan' },
-		{ id: v1(), name: 'David' },
-		{ id: v1(), name: 'Blinchik' }
+		{ id: 1, name: 'Ilysha' },
+		{ id: 2, name: 'Dimasik' },
+		{ id: 3, name: 'Rymsky' },
+		{ id: 4, name: 'Korepan' },
+		{ id: 5, name: 'David' },
+		{ id: 6, name: 'Blinchik' }
 	];
 
 	const dialogsList: JSX.Element | JSX.Element[] =
