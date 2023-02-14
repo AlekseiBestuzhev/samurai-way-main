@@ -3,8 +3,15 @@ import { NewPost } from "./NewPost/NewPost";
 import { Post } from "./Post/Post";
 import cls from "./PostsBlock.module.css";
 
+type PostType = {
+	id: number,
+	name: string,
+	title: string,
+	likes: number
+}
+
 const PostsBlock = () => {
-	const postsData = [
+	const postsData: PostType[] = [
 		{ id: 1, name: 'Tony Stark', title: 'How are you?', likes: 6 },
 		{ id: 2, name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
 	];
