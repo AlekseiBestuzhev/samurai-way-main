@@ -26,9 +26,9 @@ export const Messages = () => {
 	];
 
 	const dialogMessagesList: JSX.Element | JSX.Element[] =
-		dialogsData.length
+		messagesData.length
 			? messagesData.map(el => <FriendMessage id={el.id} text={el.text} />)
-			: <span className={cls.emptyList}>Nobody needs you...</span>
+			: <div className={cls.emptyList}>Messages will appear when you start chat...</div>
 
 	return (
 		<div className='additionalContainer'>
