@@ -5,6 +5,7 @@ import App from './App';
 import { DialogType } from './components/Messages/Dialog/Dialog';
 import { FriendMessageType } from './components/Messages/FriendMessage/FriendMessage';
 import { v1 } from 'uuid';
+import { PostType } from './components/Profile/PostsBlock/Post/Post';
 
 const dialogsData: DialogType[] = [
 	{ id: 1, name: 'Ilysha' },
@@ -30,6 +31,7 @@ const postsData: PostType[] = [
 ReactDOM.render(
 	<App
 		dialogsData={dialogsData}
-		messagesData={messagesData} />,
+		messagesData={messagesData}
+		postsData={postsData} />,
 	document.getElementById('root')
 );

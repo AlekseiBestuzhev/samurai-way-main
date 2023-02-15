@@ -10,15 +10,18 @@ import { Music } from './components/Music/Music';
 import { Settings } from './components/Settings/Settings';
 import { DialogType } from './components/Messages/Dialog/Dialog';
 import { FriendMessageType } from './components/Messages/FriendMessage/FriendMessage';
+import { PostType } from './components/Profile/PostsBlock/Post/Post';
 
 type AppType = {
 	dialogsData: DialogType[],
-	messagesData: FriendMessageType[]
+	messagesData: FriendMessageType[],
+	postsData: PostType[]
 }
 
 const App: React.FC<AppType> = (props): JSX.Element => {
 
 	const renderMessages = () => <Messages dialogsData={props.dialogsData} messagesData={props.messagesData} />
+	const renderProfile = () => <Profile postsData={props.postsData} />
 
 	return (
 		<BrowserRouter>
@@ -26,7 +29,7 @@ const App: React.FC<AppType> = (props): JSX.Element => {
 				<Header />
 				<Sidebar />
 				<main className={'content'}>
-					<Route path='/profile' component={Profile} />
+					<Route path='/profile' render={renderProfile} />
 					<Route path='/messages' render={renderMessages} />
 					<Route path='/news' component={News} />
 					<Route path='/music' component={Music} />

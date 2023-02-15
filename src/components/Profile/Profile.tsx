@@ -1,8 +1,13 @@
 import React from "react";
 import cls from './Profile.module.css';
 import PostsBlock from "./PostsBlock/PostsBlock";
+import { PostType } from "./PostsBlock/Post/Post";
 
-const Profile = () => {
+type ProfileType = {
+	postsData: PostType[]
+}
+
+const Profile: React.FC<ProfileType> = (props): JSX.Element => {
 	return (
 		<>
 			<img className={cls.header}
@@ -15,7 +20,7 @@ const Profile = () => {
 					<p>beginner frontend developer</p>
 				</div>
 			</section>
-			<PostsBlock />
+			<PostsBlock postsData={props.postsData} />
 		</>
 	)
 }

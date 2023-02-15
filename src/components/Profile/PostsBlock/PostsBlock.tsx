@@ -11,7 +11,13 @@ type PostType = {
 	likes: number
 }
 
-const PostsBlock = () => {
+type PostsBlockType = {
+	postsData: PostType[]
+}
+
+const PostsBlock: React.FC<PostsBlockType> = (props): JSX.Element => {
+
+	const postsData = props.postsData;
 
 	const postsList: JSX.Element | JSX.Element[] =
 		postsData.length
