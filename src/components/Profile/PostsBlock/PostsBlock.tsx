@@ -1,5 +1,4 @@
 import React from "react";
-import { v1 } from "uuid";
 import { NewPost } from "./NewPost/NewPost";
 import { Post } from "./Post/Post";
 import cls from "./PostsBlock.module.css";
