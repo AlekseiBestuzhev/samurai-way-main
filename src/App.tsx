@@ -8,8 +8,16 @@ import { News } from './components/News/News';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Music } from './components/Music/Music';
 import { Settings } from './components/Settings/Settings';
+import { DialogType } from './components/Messages/Dialog/Dialog';
 
-const App = () => {
+type AppType = {
+	dialogsData: DialogType[]
+}
+
+const App: React.FC<AppType> = (props): JSX.Element => {
+
+	const renderMessages = () => <Messages dialogsData={props.dialogsData} />
+
 	return (
 		<BrowserRouter>
 			<div className="app-wrapper">
@@ -17,7 +25,7 @@ const App = () => {
 				<Sidebar />
 				<main className={'content'}>
 					<Route path='/profile' component={Profile} />
-					<Route path='/messages' component={Messages} />
+					<Route path='/messages' render={renderMessages} />
 					<Route path='/news' component={News} />
 					<Route path='/music' component={Music} />
 					<Route path='/settings' component={Settings} />

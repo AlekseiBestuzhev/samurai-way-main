@@ -4,15 +4,13 @@ import { Dialog, DialogType } from './Dialog/Dialog';
 import { FriendMessage, FriendMessageType } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
 
-export const Messages = () => {
-	const dialogsData: DialogType[] = [
-		{ id: 1, name: 'Ilysha' },
-		{ id: 2, name: 'Dimasik' },
-		{ id: 3, name: 'Rymsky' },
-		{ id: 4, name: 'Korepan' },
-		{ id: 5, name: 'David' },
-		{ id: 6, name: 'Blinchik' }
-	];
+type MessagesType = {
+	dialogsData: DialogType[]
+}
+
+export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
+
+	const dialogsData = props.dialogsData;
 
 	const dialogsList: JSX.Element | JSX.Element[] =
 		dialogsData.length
