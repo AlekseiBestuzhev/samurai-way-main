@@ -4,7 +4,7 @@ import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 import { FriendMessageType } from '../components/Messages/FriendMessage/FriendMessage';
 
-type StateType = {
+export type StateType = {
 	dialogsData: DialogType[],
 	messagesData: FriendMessageType[],
 	postsData: PostType[]

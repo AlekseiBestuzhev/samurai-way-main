@@ -8,20 +8,16 @@ import { News } from './components/News/News';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Music } from './components/Music/Music';
 import { Settings } from './components/Settings/Settings';
-import { DialogType } from './components/Messages/Dialog/Dialog';
-import { FriendMessageType } from './components/Messages/FriendMessage/FriendMessage';
-import { PostType } from './components/Profile/PostsBlock/Post/Post';
+import { StateType } from './redux/state';
 
 type AppType = {
-	dialogsData: DialogType[],
-	messagesData: FriendMessageType[],
-	postsData: PostType[]
+	state: StateType
 }
 
 const App: React.FC<AppType> = (props): JSX.Element => {
 
-	const renderMessages = () => <Messages dialogsData={props.dialogsData} messagesData={props.messagesData} />
-	const renderProfile = () => <Profile postsData={props.postsData} />
+	const renderMessages = () => <Messages dialogsData={props.state.dialogsData} messagesData={props.state.messagesData} />
+	const renderProfile = () => <Profile postsData={props.state.postsData} />
 
 	return (
 		<BrowserRouter>
