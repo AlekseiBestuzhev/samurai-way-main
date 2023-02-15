@@ -9,14 +9,16 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Music } from './components/Music/Music';
 import { Settings } from './components/Settings/Settings';
 import { DialogType } from './components/Messages/Dialog/Dialog';
+import { FriendMessageType } from './components/Messages/FriendMessage/FriendMessage';
 
 type AppType = {
-	dialogsData: DialogType[]
+	dialogsData: DialogType[],
+	messagesData: FriendMessageType[]
 }
 
 const App: React.FC<AppType> = (props): JSX.Element => {
 
-	const renderMessages = () => <Messages dialogsData={props.dialogsData} />
+	const renderMessages = () => <Messages dialogsData={props.dialogsData} messagesData={props.messagesData} />
 
 	return (
 		<BrowserRouter>

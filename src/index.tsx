@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { DialogType } from './components/Messages/Dialog/Dialog';
+import { FriendMessageType } from './components/Messages/FriendMessage/FriendMessage';
+import { v1 } from 'uuid';
 
 const dialogsData: DialogType[] = [
 	{ id: 1, name: 'Ilysha' },
@@ -21,6 +23,8 @@ const messagesData: FriendMessageType[] = [
 ];
 
 ReactDOM.render(
-	<App dialogsData={dialogsData} />,
+	<App
+		dialogsData={dialogsData}
+		messagesData={messagesData} />,
 	document.getElementById('root')
 );
