@@ -13,6 +13,13 @@ const dialogsData: DialogType[] = [
 	{ id: 6, name: 'Blinchik' }
 ];
 
+const messagesData: FriendMessageType[] = [
+	{ id: v1(), text: 'Hello, my friend' },
+	{ id: v1(), text: 'How is it going?' },
+	{ id: v1(), text: 'When we will meet?' },
+	{ id: v1(), text: 'Maybe tomorrow?' }
+];
+
 ReactDOM.render(
 	<App dialogsData={dialogsData} />,
 	document.getElementById('root')
