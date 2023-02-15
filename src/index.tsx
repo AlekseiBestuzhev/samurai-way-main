@@ -22,6 +22,11 @@ const messagesData: FriendMessageType[] = [
 	{ id: v1(), text: 'Maybe tomorrow?' }
 ];
 
+const postsData: PostType[] = [
+	{ id: v1(), name: 'Tony Stark', title: 'How are you?', likes: 6 },
+	{ id: v1(), name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
+];
+
 ReactDOM.render(
 	<App
 		dialogsData={dialogsData}

@@ -12,10 +12,6 @@ type PostType = {
 }
 
 const PostsBlock = () => {
-	const postsData: PostType[] = [
-		{ id: v1(), name: 'Tony Stark', title: 'How are you?', likes: 6 },
-		{ id: v1(), name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
-	];
 
 	const postsList: JSX.Element | JSX.Element[] =
 		postsData.length
