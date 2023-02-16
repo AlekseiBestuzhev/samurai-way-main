@@ -1,10 +1,10 @@
 import React from "react";
 import cls from './Profile.module.css';
 import PostsBlock from "./PostsBlock/PostsBlock";
-import { PostType } from "./PostsBlock/Post/Post";
+import { ProfilePageType } from "../../redux/state";
 
 type ProfileType = {
-	postsData: PostType[]
+	profilePage: ProfilePageType
 }
 
 const Profile: React.FC<ProfileType> = (props): JSX.Element => {
@@ -20,7 +20,7 @@ const Profile: React.FC<ProfileType> = (props): JSX.Element => {
 					<p>beginner frontend developer</p>
 				</div>
 			</section>
-			<PostsBlock postsData={props.postsData} />
+			<PostsBlock postsData={props.profilePage.postsData} />
 		</>
 	)
 }

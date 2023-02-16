@@ -4,12 +4,12 @@ import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 import { FriendMessageType } from '../components/Messages/FriendMessage/FriendMessage';
 
-type MessagesPageType = {
+export type MessagesPageType = {
 	dialogsData: DialogType[],
 	messagesData: FriendMessageType[],
 }
 
-type ProfilePageType = {
+export type ProfilePageType = {
 	postsData: PostType[]
 }
 
