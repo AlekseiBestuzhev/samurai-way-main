@@ -1,17 +1,16 @@
 import React from 'react';
-import { v1 } from 'uuid';
-import { Dialog, DialogType } from './Dialog/Dialog';
-import { FriendMessage, FriendMessageType } from './FriendMessage/FriendMessage';
+import { MessagesPageType } from '../../redux/state';
+import { Dialog } from './Dialog/Dialog';
+import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
 
 type MessagesType = {
-	dialogsData: DialogType[],
-	messagesData: FriendMessageType[]
+	messagesPage: MessagesPageType
 }
 
 export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 
-	const { dialogsData, messagesData } = props;
+	const { dialogsData, messagesData } = props.messagesPage;
 
 	const dialogsList: JSX.Element | JSX.Element[] =
 		dialogsData.length

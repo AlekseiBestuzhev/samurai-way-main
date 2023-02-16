@@ -16,7 +16,7 @@ type AppType = {
 
 const App: React.FC<AppType> = (props): JSX.Element => {
 
-	const renderMessages = () => <Messages dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} />
+	const renderMessages = () => <Messages messagesPage={props.state.messagesPage} />
 	const renderProfile = () => <Profile profilePage={props.state.profilePage} />
 
 	return (
