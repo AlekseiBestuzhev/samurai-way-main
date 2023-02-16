@@ -9,9 +9,13 @@ type MessagesPageType = {
 	messagesData: FriendMessageType[],
 }
 
+type ProfilePageType = {
+	postsData: PostType[]
+}
+
 export type StateType = {
 	messagesPage: MessagesPageType,
-	postsData: PostType[]
+	profilePage: ProfilePageType
 }
 
 const state: StateType = {
@@ -31,10 +35,12 @@ const state: StateType = {
 			{ id: v1(), text: 'Maybe tomorrow?' }
 		]
 	},
-	postsData: [
-		{ id: v1(), name: 'Tony Stark', title: 'How are you?', likes: 6 },
-		{ id: v1(), name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
-	]
+	profilePage: {
+		postsData: [
+			{ id: v1(), name: 'Tony Stark', title: 'How are you?', likes: 6 },
+			{ id: v1(), name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
+		]
+	}
 }
 
 export default state;
