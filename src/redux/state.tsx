@@ -2,6 +2,7 @@ import { v1 } from 'uuid';
 import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 import { FriendMessageType } from '../components/Messages/FriendMessage/FriendMessage';
+import { renderEntrieTree } from '../render';
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
@@ -49,6 +50,7 @@ export const addPost = (postText: string) => {
 		likes: 0
 	}
 	state.profilePage.postsData.unshift(newPost);
+	renderEntrieTree(state);
 	console.log(state);
 }
 
