@@ -4,7 +4,8 @@ import PostsBlock from "./PostsBlock/PostsBlock";
 import { ProfilePageType } from "../../redux/state";
 
 type ProfileType = {
-	profilePage: ProfilePageType
+	profilePage: ProfilePageType,
+	addPost: (postText: string) => void
 }
 
 const Profile: React.FC<ProfileType> = (props): JSX.Element => {
@@ -20,7 +21,9 @@ const Profile: React.FC<ProfileType> = (props): JSX.Element => {
 					<p>beginner frontend developer</p>
 				</div>
 			</section>
-			<PostsBlock postsData={props.profilePage.postsData} />
+			<PostsBlock
+				addPost={props.addPost}
+				postsData={props.profilePage.postsData} />
 		</>
 	)
 }

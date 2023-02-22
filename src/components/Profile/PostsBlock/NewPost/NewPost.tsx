@@ -1,12 +1,16 @@
-import { createRef } from 'react';
+import { createRef, FC } from 'react';
 import cls from './NewPost.module.css'
 
-export const NewPost = () => {
+type NewPostType = {
+	addPost: (postText: string) => void
+}
+
+export const NewPost: FC<NewPostType> = ({ addPost }): JSX.Element => {
 
 	const newPostRef = createRef<HTMLTextAreaElement>();
 
 	const addPostHandler = () => {
-		alert(newPostRef.current ? newPostRef.current.value : '---');
+		addPost(newPostRef.current ? newPostRef.current.value : '---');
 	}
 
 	return (

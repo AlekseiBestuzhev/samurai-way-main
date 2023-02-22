@@ -7,6 +7,7 @@ import state, { addPost } from './redux/state';
 addPost('Hello there')
 
 ReactDOM.render(
-	<App state={state} />,
+	<App state={state}
+		addPost={addPost} />,
 	document.getElementById('root')
 );
