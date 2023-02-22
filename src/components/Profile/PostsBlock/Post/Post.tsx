@@ -1,4 +1,5 @@
 import React from 'react';
+import { myAvatar } from '../../Profile';
 import cls from './Post.module.css';
 
 export type PostType = {
@@ -11,7 +12,7 @@ export const Post = (props: PostType) => {
 
 	return (
 		<div className={cls.post}>
-			<img src="https://yobte.ru/uploads/posts/2019-11/kosmonavt-53-foto-24.jpg" alt="Avatar" className={cls.ava} />
+			<img src={myAvatar} alt="Avatar" className={cls.ava} />
 			<div className={cls.sender}>
 				<p className={cls.text}>{props.title}</p>
 				<p className={cls.name}>Alex Nealex</p>

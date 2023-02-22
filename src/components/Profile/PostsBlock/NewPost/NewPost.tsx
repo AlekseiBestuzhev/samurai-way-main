@@ -10,7 +10,10 @@ export const NewPost: FC<NewPostType> = ({ addPost }): JSX.Element => {
 	const newPostRef = createRef<HTMLTextAreaElement>();
 
 	const addPostHandler = () => {
-		addPost(newPostRef.current ? newPostRef.current.value : '---');
+		if (newPostRef.current) {
+			addPost(newPostRef.current.value);
+			newPostRef.current.value = '';
+		}
 	}
 
 	return (
