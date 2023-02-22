@@ -1,8 +1,9 @@
-import React from 'react';
 import { v1 } from 'uuid';
 import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 import { FriendMessageType } from '../components/Messages/FriendMessage/FriendMessage';
+import { profile } from 'console';
+import { stat } from 'fs';
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
@@ -37,10 +38,19 @@ const state: StateType = {
 	},
 	profilePage: {
 		postsData: [
-			{ id: v1(), name: 'Tony Stark', title: 'How are you?', likes: 6 },
-			{ id: v1(), name: 'Tony Stark', title: 'You\'re already here?', likes: 9 }
+			{ id: v1(), title: 'It\'s my second post.', likes: 6 },
+			{ id: v1(), title: 'It\'s my first post.', likes: 9 }
 		]
 	}
+}
+
+export const addPost = (postText: string) => {
+	const newPost: PostType = {
+		id: v1(),
+		title: postText,
+		likes: 0
+	}
+	state.profilePage.postsData.unshift(newPost);
 }
 
 export default state;

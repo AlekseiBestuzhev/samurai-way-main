@@ -1,14 +1,7 @@
 import React from "react";
 import { NewPost } from "./NewPost/NewPost";
-import { Post } from "./Post/Post";
+import { Post, PostType } from "./Post/Post";
 import cls from "./PostsBlock.module.css";
-
-type PostType = {
-	id: string,
-	name: string,
-	title: string,
-	likes: number
-}
 
 type PostsBlockType = {
 	postsData: PostType[]
@@ -20,7 +13,7 @@ const PostsBlock: React.FC<PostsBlockType> = (props): JSX.Element => {
 
 	const postsList: JSX.Element | JSX.Element[] =
 		postsData.length
-			? postsData.map(el => <Post id={el.id} name={el.name} title={el.title} likes={el.likes} />)
+			? postsData.map(el => <Post id={el.id} title={el.title} likes={el.likes} />)
 			: <div className={cls.emptyList}>Your wall is empty...</div>
 
 	return (
