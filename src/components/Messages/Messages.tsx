@@ -37,14 +37,20 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 			: <div className={cls.emptyList}>Messages will appear when you start chat...</div>
 
 	return (
-		<div className='additionalContainer'>
+		<div className='additionalContainer fixHeightBlock'>
 			<h2 className={cls.title}>Dialogs</h2>
 			<div className={cls.dialogs}>
 				<div className={cls.dialogItems}>
 					{dialogsList}
 				</div>
 				<div className={cls.dialogContent}>
-					{dialogMessagesList}
+					<div className={cls.dialogMessages}>
+						{dialogMessagesList}
+					</div>
+					<div className="newGroup">
+						<textarea name="message" id="message"></textarea>
+						<button>Send</button>
+					</div>
 				</div>
 			</div>
 		</div>
