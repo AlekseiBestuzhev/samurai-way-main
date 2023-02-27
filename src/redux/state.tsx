@@ -3,6 +3,7 @@ import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 import { FriendMessageType } from '../components/Messages/FriendMessage/FriendMessage';
 import { renderEntrieTree } from '../render';
+import { MyMessageType } from '../components/Messages/MyMessage/MyMessage';
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
@@ -50,6 +51,17 @@ export const addPost = (postText: string) => {
 		likes: 0
 	}
 	state.profilePage.postsData.unshift(newPost);
+	renderEntrieTree(state);
+	console.log(state);
+}
+
+export const addMessage = (messageText: string) => {
+	const newMessage: MyMessageType = {
+		id: v1(),
+		text: messageText,
+		iSender: true
+	}
+	state.messagesPage.messagesData.push(newMessage);
 	renderEntrieTree(state);
 	console.log(state);
 }
