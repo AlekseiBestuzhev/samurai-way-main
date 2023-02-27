@@ -3,9 +3,16 @@ import { MessagesPageType } from '../../redux/state';
 import { Dialog } from './Dialog/Dialog';
 import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
+import { MyMessage } from './MyMessage/MyMessage';
 
 type MessagesType = {
 	messagesPage: MessagesPageType
+}
+
+export type MessageUniversalType = {
+	id: string,
+	text: string,
+	iSender: boolean
 }
 
 export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
@@ -19,7 +26,14 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 
 	const dialogMessagesList: JSX.Element | JSX.Element[] =
 		messagesData.length
-			? messagesData.map(el => <FriendMessage id={el.id} text={el.text} />)
+			? messagesData.map(el => {
+				if (el.iSender) {
+					return <MyMessage id={el.id} text={el.text} iSender={true} />
+				}
+				else {
+					return <FriendMessage id={el.id} text={el.text} iSender={false} />
+				}
+			})
 			: <div className={cls.emptyList}>Messages will appear when you start chat...</div>
 
 	return (

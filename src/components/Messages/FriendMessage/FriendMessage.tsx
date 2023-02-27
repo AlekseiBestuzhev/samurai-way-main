@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
+import { MessageUniversalType } from '../Messages';
 import cls from './FriendMessage.module.css'
 
-export type FriendMessageType = {
-	id: string,
-	text: string
-}
-
-export const FriendMessage: FC<FriendMessageType> = (props): JSX.Element => {
+export const FriendMessage: FC<MessageUniversalType> = (props): JSX.Element => {
 
 	return (
 		<div className={cls.friendMessage}>

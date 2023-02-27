@@ -1,13 +1,12 @@
 import { v1 } from 'uuid';
 import { DialogType } from '../components/Messages/Dialog/Dialog';
+import { MessageUniversalType } from '../components/Messages/Messages';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
-import { FriendMessageType } from '../components/Messages/FriendMessage/FriendMessage';
 import { renderEntrieTree } from '../render';
-import { MyMessageType } from '../components/Messages/MyMessage/MyMessage';
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
-	messagesData: FriendMessageType[],
+	messagesData: MessageUniversalType[],
 }
 
 export type ProfilePageType = {
@@ -30,10 +29,11 @@ const state: StateType = {
 			{ id: 6, name: 'Blinchik' }
 		],
 		messagesData: [
-			{ id: v1(), text: 'Hello, my friend' },
-			{ id: v1(), text: 'How is it going?' },
-			{ id: v1(), text: 'When we will meet?' },
-			{ id: v1(), text: 'Maybe tomorrow?' }
+			{ id: v1(), text: 'Hello, my friend', iSender: false },
+			{ id: v1(), text: 'How is it going?', iSender: false },
+			{ id: v1(), text: 'When we will meet?', iSender: false },
+			{ id: v1(), text: 'Maybe tomorrow?', iSender: false },
+			{ id: v1(), text: 'Ok, let\'s tomorrow!', iSender: true }
 		]
 	},
 	profilePage: {
@@ -56,7 +56,7 @@ export const addPost = (postText: string) => {
 }
 
 export const addMessage = (messageText: string) => {
-	const newMessage: MyMessageType = {
+	const newMessage: MessageUniversalType = {
 		id: v1(),
 		text: messageText,
 		iSender: true
