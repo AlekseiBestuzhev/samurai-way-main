@@ -31,10 +31,10 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 		messagesData.length
 			? messagesData.map(el => {
 				if (el.iSender) {
-					return <MyMessage id={el.id} text={el.text} iSender={true} />
+					return <MyMessage key={el.id} id={el.id} text={el.text} iSender={true} />
 				}
 				else {
-					return <FriendMessage id={el.id} text={el.text} iSender={false} />
+					return <FriendMessage key={el.id} id={el.id} text={el.text} iSender={false} />
 				}
 			})
 			: <div className={cls.emptyList}>Messages will appear when you start chat...</div>
