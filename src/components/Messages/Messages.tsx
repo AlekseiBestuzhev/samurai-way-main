@@ -4,6 +4,7 @@ import { Dialog } from './Dialog/Dialog';
 import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
 import { MyMessage } from './MyMessage/MyMessage';
+import { NewMessage } from './NewMessage/NewMessage';
 
 type MessagesType = {
 	messagesPage: MessagesPageType
@@ -47,10 +48,7 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 					<div className={cls.dialogMessages}>
 						{dialogMessagesList}
 					</div>
-					<div className="newGroup">
-						<textarea name="message" id="message"></textarea>
-						<button>Send</button>
-					</div>
+					<NewMessage />
 				</div>
 			</div>
 		</div>

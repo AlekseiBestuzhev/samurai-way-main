@@ -1,0 +1,12 @@
+.block {
+	background-color: #cfcfcf;
+}
+
+.textarea {
+	border: none;
+}
+
+.button {
+	background-color: blue;
+	color: #fff;
+}
