@@ -18,7 +18,7 @@ export type StateType = {
 	profilePage: ProfilePageType
 }
 
-const state: StateType = {
+let state: StateType = {
 	messagesPage: {
 		dialogsData: [
 			{ id: 1, name: 'Ilysha' },
@@ -61,7 +61,15 @@ export const addMessage = (messageText: string) => {
 		text: messageText,
 		iSender: true
 	}
-	state.messagesPage.messagesData.push(newMessage);
+	//state.messagesPage.messagesData.push(newMessage);
+	state = {
+		...state,
+		messagesPage: {
+			...state.messagesPage,
+			messagesData: [...state.messagesPage.messagesData, newMessage]
+		}
+	}
+
 	renderEntrieTree(state);
 	console.log(state);
 }

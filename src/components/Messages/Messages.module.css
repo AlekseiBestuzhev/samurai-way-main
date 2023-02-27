@@ -14,21 +14,26 @@
 	flex-direction: column;
 	row-gap: 10px;
 	border-right: 2px solid #d2d2d2;
-	overflow: auto;
 }
 
 .dialogContent {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	padding: 0 30px;
 }
 
 .dialogMessages {
+	flex: 0 0 400px;
 	display: flex;
-	flex-grow: 1;
 	flex-direction: column;
 	row-gap: 15px;
-	overflow: auto;
+	padding-bottom: 20px;
+	overflow-y: auto;
+}
+
+.dialogMessages::-webkit-scrollbar {
+	display: none;
 }
 
 .emptyList {

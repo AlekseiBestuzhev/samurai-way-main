@@ -1,17 +1,17 @@
 import { createRef, FC } from 'react';
 import cls from './NewMessage.module.css'
 
-type NewPostType = {
-	//addPost: (postText: string) => void
+type NewMessageType = {
+	addMessage: (messageText: string) => void
 }
 
-export const NewMessage = (): JSX.Element => {
+export const NewMessage: FC<NewMessageType> = ({ addMessage }): JSX.Element => {
 
 	const newMessageRef = createRef<HTMLTextAreaElement>();
 
 	const addMessageHandler = () => {
 		if (newMessageRef.current) {
-			//addPost(newPostRef.current.value);
+			addMessage(newMessageRef.current.value);
 			newMessageRef.current.value = '';
 		}
 	}
@@ -19,8 +19,8 @@ export const NewMessage = (): JSX.Element => {
 	return (
 		<div className={cls.block}>
 			<textarea
-				id="1"
-				name="text"
+				id="message"
+				name="message"
 				ref={newMessageRef}
 				className={cls.textarea}
 				placeholder='Write to chat...'></textarea>

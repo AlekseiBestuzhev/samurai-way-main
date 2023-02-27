@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MessagesPageType } from '../../redux/state';
+import { renderEntrieTree } from '../../render';
 import { Dialog } from './Dialog/Dialog';
 import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
@@ -7,7 +8,8 @@ import { MyMessage } from './MyMessage/MyMessage';
 import { NewMessage } from './NewMessage/NewMessage';
 
 type MessagesType = {
-	messagesPage: MessagesPageType
+	messagesPage: MessagesPageType,
+	addMessage: (messageText: string) => void
 }
 
 export type MessageUniversalType = {
@@ -37,6 +39,16 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 			})
 			: <div className={cls.emptyList}>Messages will appear when you start chat...</div>
 
+	const messagesEndRef = useRef<null | HTMLDivElement>(null)
+	const scrollToBottom = () => {
+		console.log('scroll');
+		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+	}
+	useEffect(() => {
+		console.log('useEffect')
+		scrollToBottom()
+	}, [messagesData]);
+
 	return (
 		<div className='additionalContainer fixHeightBlock'>
 			<h2 className={cls.title}>Dialogs</h2>
@@ -47,8 +59,9 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 				<div className={cls.dialogContent}>
 					<div className={cls.dialogMessages}>
 						{dialogMessagesList}
+						<div ref={messagesEndRef}></div>
 					</div>
-					<NewMessage />
+					<NewMessage addMessage={props.addMessage} />
 				</div>
 			</div>
 		</div>
