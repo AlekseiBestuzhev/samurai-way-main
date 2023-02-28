@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { MessagesPageType } from '../../redux/state';
-import { renderEntrieTree } from '../../render';
 import { Dialog } from './Dialog/Dialog';
 import { FriendMessage } from './FriendMessage/FriendMessage';
 import cls from './Messages.module.css'
@@ -24,7 +23,7 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 
 	const dialogsList: JSX.Element | JSX.Element[] =
 		dialogsData.length
-			? dialogsData.map(el => <Dialog id={el.id} name={el.name} />)
+			? dialogsData.map(el => <Dialog key={el.id} id={el.id} name={el.name} />)
 			: <span className={cls.emptyList}>Nobody needs you...</span>
 
 	const dialogMessagesList: JSX.Element | JSX.Element[] =

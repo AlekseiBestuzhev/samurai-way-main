@@ -2,10 +2,11 @@ import { createRef, FC } from 'react';
 import cls from './NewPost.module.css'
 
 type NewPostType = {
-	addPost: (postText: string) => void
+	addPost: (postText: string) => void,
+	newPostText: string
 }
 
-export const NewPost: FC<NewPostType> = ({ addPost }): JSX.Element => {
+export const NewPost: FC<NewPostType> = ({ addPost, newPostText }): JSX.Element => {
 
 	const newPostRef = createRef<HTMLTextAreaElement>();
 
@@ -16,12 +17,16 @@ export const NewPost: FC<NewPostType> = ({ addPost }): JSX.Element => {
 		}
 	}
 
+	const onChangeHandler = () => {
+		console.log('change');
+	}
+
 	return (
 		<div className={cls.block}>
 			<textarea
-				id="1"
-				name="text"
 				ref={newPostRef}
+				value={newPostText}
+				onChange={onChangeHandler}
 				className={cls.textarea}
 				placeholder='Write text for a new post here...'></textarea>
 			<div className={cls.buttons}>

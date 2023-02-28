@@ -5,7 +5,8 @@ import cls from "./PostsBlock.module.css";
 
 type PostsBlockType = {
 	postsData: PostType[],
-	addPost: (postText: string) => void
+	addPost: (postText: string) => void,
+	newPostText: string
 }
 
 const PostsBlock: React.FC<PostsBlockType> = (props): JSX.Element => {
@@ -19,7 +20,9 @@ const PostsBlock: React.FC<PostsBlockType> = (props): JSX.Element => {
 
 	return (
 		<div className={'container'}>
-			<NewPost addPost={props.addPost} />
+			<NewPost
+				addPost={props.addPost}
+				newPostText={props.newPostText} />
 			<hr />
 			<div className={cls.title}>My wall</div>
 			{postsList}

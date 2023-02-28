@@ -25,7 +25,8 @@ const Profile: React.FC<ProfileType> = (props): JSX.Element => {
 			</section>
 			<PostsBlock
 				addPost={props.addPost}
-				postsData={props.profilePage.postsData} />
+				postsData={props.profilePage.postsData}
+				newPostText={props.profilePage.newPostText} />
 		</>
 	)
 }

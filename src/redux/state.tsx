@@ -10,7 +10,8 @@ export type MessagesPageType = {
 }
 
 export type ProfilePageType = {
-	postsData: PostType[]
+	postsData: PostType[],
+	newPostText: string
 }
 
 export type StateType = {
@@ -40,7 +41,8 @@ let state: StateType = {
 		postsData: [
 			{ id: v1(), title: 'It\'s my second post.', likes: 6 },
 			{ id: v1(), title: 'It\'s my first post.', likes: 9 }
-		]
+		],
+		newPostText: 'fixedValue'
 	}
 }
 
@@ -61,7 +63,6 @@ export const addMessage = (messageText: string) => {
 		text: messageText,
 		iSender: true
 	}
-	//state.messagesPage.messagesData.push(newMessage);
 	state = {
 		...state,
 		messagesPage: {
@@ -69,9 +70,7 @@ export const addMessage = (messageText: string) => {
 			messagesData: [...state.messagesPage.messagesData, newMessage]
 		}
 	}
-
 	renderEntrieTree(state);
-	console.log(state);
 }
 
 export default state;
