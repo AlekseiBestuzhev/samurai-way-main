@@ -13,15 +13,17 @@ import { StateType } from './redux/state';
 type AppType = {
 	state: StateType,
 	addPost: () => void,
-	addMessage: (messageText: string) => void,
-	updatePostText: (changedPostText: string) => void
+	addMessage: () => void,
+	updatePostText: (changedPostText: string) => void,
+	updateMessageText: (changedMessageText: string) => void
 }
 
 const App: React.FC<AppType> = (props): JSX.Element => {
 
 	const renderMessages = () => <Messages
 		addMessage={props.addMessage}
-		messagesPage={props.state.messagesPage} />
+		messagesPage={props.state.messagesPage}
+		updateMessageText={props.updateMessageText} />
 	const renderProfile = () => <Profile
 		addPost={props.addPost}
 		profilePage={props.state.profilePage}

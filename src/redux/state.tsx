@@ -7,6 +7,7 @@ import { renderEntrieTree } from '../render';
 export type MessagesPageType = {
 	dialogsData: DialogType[],
 	messagesData: MessageUniversalType[],
+	newMessageText: string
 }
 
 export type ProfilePageType = {
@@ -16,7 +17,7 @@ export type ProfilePageType = {
 
 export type StateType = {
 	messagesPage: MessagesPageType,
-	profilePage: ProfilePageType
+	profilePage: ProfilePageType,
 }
 
 let state: StateType = {
@@ -35,7 +36,8 @@ let state: StateType = {
 			{ id: v1(), text: 'When we will meet?', iSender: false },
 			{ id: v1(), text: 'Maybe tomorrow?', iSender: false },
 			{ id: v1(), text: 'Ok, let\'s tomorrow!', iSender: true }
-		]
+		],
+		newMessageText: ''
 	},
 	profilePage: {
 		postsData: [
@@ -62,10 +64,15 @@ export const addPost = () => {
 	renderEntrieTree(state);
 }
 
-export const addMessage = (messageText: string) => {
+export const updateMessageText = (changedMessageText: string) => {
+	state.messagesPage.newMessageText = changedMessageText;
+	renderEntrieTree(state);
+}
+
+export const addMessage = () => {
 	const newMessage: MessageUniversalType = {
 		id: v1(),
-		text: messageText,
+		text: state.messagesPage.newMessageText,
 		iSender: true
 	}
 	state = {
@@ -75,6 +82,7 @@ export const addMessage = (messageText: string) => {
 			messagesData: [...state.messagesPage.messagesData, newMessage]
 		}
 	}
+	state.messagesPage.newMessageText = '';
 	renderEntrieTree(state);
 }
 

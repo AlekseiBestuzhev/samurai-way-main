@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { addMessage, addPost, StateType, updatePostText } from './redux/state';
+import { addMessage, addPost, StateType, updateMessageText, updatePostText } from './redux/state';
 
 export const renderEntrieTree = (state: StateType) => {
 
@@ -9,7 +9,8 @@ export const renderEntrieTree = (state: StateType) => {
 		<App state={state}
 			addPost={addPost}
 			addMessage={addMessage}
-			updatePostText={updatePostText} />,
+			updatePostText={updatePostText}
+			updateMessageText={updateMessageText} />,
 		document.getElementById('root')
 	)
 } 

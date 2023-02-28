@@ -8,7 +8,8 @@ import { NewMessage } from './NewMessage/NewMessage';
 
 type MessagesType = {
 	messagesPage: MessagesPageType,
-	addMessage: (messageText: string) => void
+	addMessage: () => void,
+	updateMessageText: (changedMessageText: string) => void
 }
 
 export type MessageUniversalType = {
@@ -60,7 +61,10 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 						{dialogMessagesList}
 						<div ref={messagesEndRef}></div>
 					</div>
-					<NewMessage addMessage={props.addMessage} />
+					<NewMessage
+						newMessageText={props.messagesPage.newMessageText}
+						addMessage={props.addMessage}
+						updateMessageText={props.updateMessageText} />
 				</div>
 			</div>
 		</div>

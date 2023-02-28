@@ -2,26 +2,29 @@ import { createRef, FC } from 'react';
 import cls from './NewMessage.module.css'
 
 type NewMessageType = {
-	addMessage: (messageText: string) => void
+	addMessage: () => void,
+	newMessageText: string,
+	updateMessageText: (changedMessageText: string) => void
 }
 
-export const NewMessage: FC<NewMessageType> = ({ addMessage }): JSX.Element => {
+export const NewMessage: FC<NewMessageType> = ({ addMessage, updateMessageText, newMessageText }): JSX.Element => {
 
 	const newMessageRef = createRef<HTMLTextAreaElement>();
 
-	const addMessageHandler = () => {
+	const onChangeHandler = () => {
 		if (newMessageRef.current) {
-			addMessage(newMessageRef.current.value);
-			newMessageRef.current.value = '';
+			updateMessageText(newMessageRef.current.value);
 		}
 	}
+
+	const addMessageHandler = () => addMessage();
 
 	return (
 		<div className={cls.block}>
 			<textarea
-				id="message"
-				name="message"
+				value={newMessageText}
 				ref={newMessageRef}
+				onChange={onChangeHandler}
 				className={cls.textarea}
 				placeholder='Write to chat...'></textarea>
 			<button
