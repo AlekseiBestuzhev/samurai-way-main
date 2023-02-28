@@ -42,19 +42,24 @@ let state: StateType = {
 			{ id: v1(), title: 'It\'s my second post.', likes: 6 },
 			{ id: v1(), title: 'It\'s my first post.', likes: 9 }
 		],
-		newPostText: 'fixedValue'
+		newPostText: ''
 	}
 }
 
-export const addPost = (postText: string) => {
+export const updatePostText = (changedPostText: string) => {
+	state.profilePage.newPostText = changedPostText;
+	renderEntrieTree(state);
+}
+
+export const addPost = () => {
 	const newPost: PostType = {
 		id: v1(),
-		title: postText,
+		title: state.profilePage.newPostText,
 		likes: 0
 	}
 	state.profilePage.postsData.unshift(newPost);
+	state.profilePage.newPostText = '';
 	renderEntrieTree(state);
-	console.log(state);
 }
 
 export const addMessage = (messageText: string) => {

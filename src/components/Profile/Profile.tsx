@@ -5,7 +5,8 @@ import { ProfilePageType } from "../../redux/state";
 
 type ProfileType = {
 	profilePage: ProfilePageType,
-	addPost: (postText: string) => void
+	addPost: () => void,
+	updatePostText: (changedPostText: string) => void
 }
 
 export const myAvatar = 'https://masyamba.ru/%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8/18-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8-%D0%BF%D1%80%D0%BE-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%BE%D0%B2.jpg'
@@ -26,7 +27,8 @@ const Profile: React.FC<ProfileType> = (props): JSX.Element => {
 			<PostsBlock
 				addPost={props.addPost}
 				postsData={props.profilePage.postsData}
-				newPostText={props.profilePage.newPostText} />
+				newPostText={props.profilePage.newPostText}
+				updatePostText={props.updatePostText} />
 		</>
 	)
 }

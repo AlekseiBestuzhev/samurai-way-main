@@ -2,23 +2,21 @@ import { createRef, FC } from 'react';
 import cls from './NewPost.module.css'
 
 type NewPostType = {
-	addPost: (postText: string) => void,
-	newPostText: string
+	addPost: () => void,
+	newPostText: string,
+	updatePostText: (changedPostText: string) => void
 }
 
-export const NewPost: FC<NewPostType> = ({ addPost, newPostText }): JSX.Element => {
+export const NewPost: FC<NewPostType> = ({ addPost, newPostText, updatePostText }): JSX.Element => {
 
 	const newPostRef = createRef<HTMLTextAreaElement>();
 
-	const addPostHandler = () => {
-		if (newPostRef.current) {
-			addPost(newPostRef.current.value);
-			newPostRef.current.value = '';
-		}
-	}
+	const addPostHandler = () => addPost();
 
 	const onChangeHandler = () => {
-		console.log('change');
+		if (newPostRef.current) {
+			updatePostText(newPostRef.current.value);
+		}
 	}
 
 	return (
