@@ -3,9 +3,9 @@ import state, { subscribe } from './redux/state';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { addMessage, addPost, StateType, updateMessageText, updatePostText } from './redux/state';
+import { addMessage, addPost, updateMessageText, updatePostText } from './redux/state';
 
-const renderEntrieTree = (state: StateType) => {
+const renderEntrieTree = () => {
 
 	ReactDOM.render(
 		<App state={state}
@@ -17,5 +17,5 @@ const renderEntrieTree = (state: StateType) => {
 	)
 }
 
-renderEntrieTree(state);
+renderEntrieTree();
 subscribe(renderEntrieTree);

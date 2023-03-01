@@ -3,7 +3,7 @@ import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { MessageUniversalType } from '../components/Messages/Messages';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 
-let renderEntrieTree = (state: StateType) => {
+let renderEntrieTree = () => {
 	console.log('state has changed');
 }
 
@@ -51,13 +51,13 @@ let state: StateType = {
 	}
 }
 
-export const subscribe = (observer: (state: StateType) => void) => {
+export const subscribe = (observer: () => void) => {
 	renderEntrieTree = observer;
 }
 
 export const updatePostText = (changedPostText: string) => {
 	state.profilePage.newPostText = changedPostText;
-	renderEntrieTree(state);
+	renderEntrieTree();
 }
 
 export const addPost = () => {
@@ -68,12 +68,14 @@ export const addPost = () => {
 	}
 	state.profilePage.postsData.unshift(newPost);
 	state.profilePage.newPostText = '';
-	renderEntrieTree(state);
+	renderEntrieTree();
+	console.log(state);
 }
 
 export const updateMessageText = (changedMessageText: string) => {
 	state.messagesPage.newMessageText = changedMessageText;
-	renderEntrieTree(state);
+	renderEntrieTree();
+	console.log(state);
 }
 
 export const addMessage = () => {
@@ -82,15 +84,17 @@ export const addMessage = () => {
 		text: state.messagesPage.newMessageText,
 		iSender: true
 	}
-	state = {
-		...state,
-		messagesPage: {
-			...state.messagesPage,
-			messagesData: [...state.messagesPage.messagesData, newMessage]
-		}
-	}
+	state.messagesPage.messagesData.push(newMessage);
 	state.messagesPage.newMessageText = '';
-	renderEntrieTree(state);
+	// state = {
+	// 	...state,
+	// 	messagesPage: {
+	// 		...state.messagesPage,
+	// 		messagesData: [...state.messagesPage.messagesData, newMessage],
+	// 		newMessageText: ''
+	// 	}
+	// }
+	renderEntrieTree();
 }
 
 export default state;

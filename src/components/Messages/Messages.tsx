@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { MessagesPageType } from '../../redux/state';
 import { Dialog } from './Dialog/Dialog';
 import { FriendMessage } from './FriendMessage/FriendMessage';
@@ -39,15 +39,13 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 			})
 			: <div className={cls.emptyList}>Messages will appear when you start chat...</div>
 
-	const messagesEndRef = useRef<null | HTMLDivElement>(null)
-	const scrollToBottom = () => {
-		console.log('scroll');
-		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-	}
-	useEffect(() => {
-		console.log('useEffect')
-		scrollToBottom()
-	}, [messagesData]);
+	// const messagesEndRef = useRef<null | HTMLDivElement>(null)
+	// const scrollToBottom = () => {
+	// 	messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+	// }
+	// useEffect(() => {
+	// 	scrollToBottom()
+	// }, [messagesData]);
 
 	return (
 		<div className='additionalContainer fixHeightBlock'>
@@ -59,7 +57,7 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 				<div className={cls.dialogContent}>
 					<div className={cls.dialogMessages}>
 						{dialogMessagesList}
-						<div ref={messagesEndRef}></div>
+						{/* <div ref={messagesEndRef}></div> */}
 					</div>
 					<NewMessage
 						newMessageText={props.messagesPage.newMessageText}
