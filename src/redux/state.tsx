@@ -2,7 +2,10 @@ import { v1 } from 'uuid';
 import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { MessageUniversalType } from '../components/Messages/Messages';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
-import { renderEntrieTree } from '../render';
+
+let renderEntrieTree = (state: StateType) => {
+	console.log('state has changed');
+}
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
@@ -46,6 +49,10 @@ let state: StateType = {
 		],
 		newPostText: ''
 	}
+}
+
+export const subscribe = (observer: (state: StateType) => void) => {
+	renderEntrieTree = observer;
 }
 
 export const updatePostText = (changedPostText: string) => {
