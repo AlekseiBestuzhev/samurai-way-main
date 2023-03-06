@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
 import { Messages } from './components/Messages/Messages';
 import { News } from './components/News/News';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Redirect, Route } from 'react-router-dom';
 import { Music } from './components/Music/Music';
 import { Settings } from './components/Settings/Settings';
 import { StateType } from './redux/state';
@@ -30,11 +30,12 @@ const App: React.FC<AppType> = (props): JSX.Element => {
 		updatePostText={props.updatePostText} />
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<div className="app-wrapper">
 				<Header />
 				<Sidebar />
 				<main className={'content'}>
+					<Route path='/' exact render={() => <Redirect to={'/profile'} />} />
 					<Route path='/profile' render={renderProfile} />
 					<Route path='/messages' render={renderMessages} />
 					<Route path='/news' component={News} />
@@ -42,7 +43,7 @@ const App: React.FC<AppType> = (props): JSX.Element => {
 					<Route path='/settings' component={Settings} />
 				</main>
 			</div>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
 
