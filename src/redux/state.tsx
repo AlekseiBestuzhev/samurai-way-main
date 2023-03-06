@@ -1,6 +1,6 @@
 import { v1 } from 'uuid';
 import { DialogType } from '../components/Messages/Dialog/Dialog';
-import { MessageUniversalType } from '../components/Messages/Messages';
+import { MessageType } from '../components/Messages/Messages';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 
 let renderEntrieTree = () => {
@@ -9,7 +9,7 @@ let renderEntrieTree = () => {
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
-	messagesData: MessageUniversalType[],
+	messagesData: MessageType[],
 	newMessageText: string
 }
 
@@ -79,21 +79,13 @@ export const updateMessageText = (changedMessageText: string) => {
 }
 
 export const addMessage = () => {
-	const newMessage: MessageUniversalType = {
+	const newMessage: MessageType = {
 		id: v1(),
 		text: state.messagesPage.newMessageText,
 		iSender: true
 	}
 	state.messagesPage.messagesData.push(newMessage);
 	state.messagesPage.newMessageText = '';
-	// state = {
-	// 	...state,
-	// 	messagesPage: {
-	// 		...state.messagesPage,
-	// 		messagesData: [...state.messagesPage.messagesData, newMessage],
-	// 		newMessageText: ''
-	// 	}
-	// }
 	renderEntrieTree();
 }
 
