@@ -20,18 +20,19 @@ export type StateType = {
 	profilePage: ProfilePageType,
 }
 
-export type StoreType = {
-	state: StateType,
+type StoreType = {
+	_state: StateType,
+	getState: () => StateType,
 	updatePostText: (changedPostText: string) => void,
 	addPost: () => void,
 	updateMessageText: (changedMessageText: string) => void,
 	addMessage: () => void,
-	renderEntrieTree: () => void,
+	_callSubscriber: () => void,
 	subscribe: (observer: () => void) => void
 }
 
 export const store: StoreType = {
-	state: {
+	_state: {
 		messagesPage: {
 			dialogsData: [
 				{ id: 1, name: 'Ilysha' },
@@ -58,40 +59,41 @@ export const store: StoreType = {
 			newPostText: ''
 		}
 	},
+	getState() {
+		return this._state
+	},
 	updatePostText(changedPostText: string) {
-		state.profilePage.newPostText = changedPostText;
-		renderEntrieTree()
+		this._state.profilePage.newPostText = changedPostText;
+		this._callSubscriber();
 	},
 	addPost() {
 		const newPost: PostType = {
 			id: v1(),
-			title: state.profilePage.newPostText,
+			title: this._state.profilePage.newPostText,
 			likes: 0
 		}
-		state.profilePage.postsData.unshift(newPost);
-		state.profilePage.newPostText = '';
-		renderEntrieTree();
-		console.log(state);
+		this._state.profilePage.postsData.unshift(newPost);
+		this._state.profilePage.newPostText = '';
+		this._callSubscriber();
 	},
 	updateMessageText(changedMessageText: string) {
-		state.messagesPage.newMessageText = changedMessageText;
-		renderEntrieTree();
-		console.log(state);
+		this._state.messagesPage.newMessageText = changedMessageText;
+		this._callSubscriber();
 	},
 	addMessage() {
 		const newMessage: MessageType = {
 			id: v1(),
-			text: state.messagesPage.newMessageText,
+			text: this._state.messagesPage.newMessageText,
 			iSender: true
 		}
-		state.messagesPage.messagesData.push(newMessage);
-		state.messagesPage.newMessageText = '';
-		renderEntrieTree();
+		this._state.messagesPage.messagesData.push(newMessage);
+		this._state.messagesPage.newMessageText = '';
+		this._callSubscriber();
 	},
-	renderEntrieTree() {
+	_callSubscriber() {
 		console.log('state has changed');
 	},
 	subscribe(observer: () => void) {
-		renderEntrieTree = observer;
+		this._callSubscriber = observer;
 	}
 }
