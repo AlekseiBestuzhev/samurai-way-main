@@ -20,7 +20,17 @@ export type StateType = {
 	profilePage: ProfilePageType,
 }
 
-export const store = {
+export type StoreType = {
+	state: StateType,
+	updatePostText: (changedPostText: string) => void,
+	addPost: () => void,
+	updateMessageText: (changedMessageText: string) => void,
+	addMessage: () => void,
+	renderEntrieTree: () => void,
+	subscribe: (observer: () => void) => void
+}
+
+export const store: StoreType = {
 	state: {
 		messagesPage: {
 			dialogsData: [
