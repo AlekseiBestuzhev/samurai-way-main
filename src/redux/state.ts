@@ -37,8 +37,6 @@ type StoreType = {
 	subscribe: (observer: () => void) => void,
 	getState: () => StateType,
 	dispatch: (action: ActionsTypes) => void,
-	updatePostText: (changedPostText: string) => void,
-	addPost: () => void,
 	updateMessageText: (changedMessageText: string) => void,
 	addMessage: () => void
 }
@@ -81,21 +79,20 @@ export const store: StoreType = {
 		return this._state
 	},
 	dispatch(action) {
-
-	},
-	updatePostText(changedPostText: string) {
-		this._state.profilePage.newPostText = changedPostText;
-		this._callSubscriber();
-	},
-	addPost() {
-		const newPost: PostType = {
-			id: v1(),
-			title: this._state.profilePage.newPostText,
-			likes: 0
+		if (action.type === 'UPDATE-POST-TEXT') {
+			this._state.profilePage.newPostText = action.changedPostText;
+			this._callSubscriber();
 		}
-		this._state.profilePage.postsData.unshift(newPost);
-		this._state.profilePage.newPostText = '';
-		this._callSubscriber();
+		else if (action.type === 'ADD-POST') {
+			const newPost: PostType = {
+				id: v1(),
+				title: this._state.profilePage.newPostText,
+				likes: 0
+			}
+			this._state.profilePage.postsData.unshift(newPost);
+			this._state.profilePage.newPostText = '';
+			this._callSubscriber();
+		}
 	},
 	updateMessageText(changedMessageText: string) {
 		this._state.messagesPage.newMessageText = changedMessageText;

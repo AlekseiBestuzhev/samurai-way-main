@@ -1,21 +1,22 @@
 import { createRef, FC } from 'react';
+import { ActionsTypes } from '../../../../redux/state';
 import cls from './NewPost.module.css'
 
 type NewPostType = {
-	addPost: () => void,
 	newPostText: string,
-	updatePostText: (changedPostText: string) => void
+	dispatch: (action: ActionsTypes) => void
 }
 
-export const NewPost: FC<NewPostType> = ({ addPost, newPostText, updatePostText }): JSX.Element => {
+export const NewPost: FC<NewPostType> = ({ dispatch, newPostText }): JSX.Element => {
 
 	const newPostRef = createRef<HTMLTextAreaElement>();
 
-	const addPostHandler = () => addPost();
+	const addPostHandler = () => dispatch({ type: 'ADD-POST' });
 
 	const onChangeHandler = () => {
 		if (newPostRef.current) {
-			updatePostText(newPostRef.current.value);
+			const currentValue = newPostRef.current.value;
+			dispatch({ type: 'UPDATE-POST-TEXT', changedPostText: currentValue })
 		}
 	}
 

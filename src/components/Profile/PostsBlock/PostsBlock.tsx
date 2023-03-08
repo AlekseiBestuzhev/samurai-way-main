@@ -1,13 +1,13 @@
 import React from "react";
+import { ActionsTypes } from "../../../redux/state";
 import { NewPost } from "./NewPost/NewPost";
 import { Post, PostType } from "./Post/Post";
 import cls from "./PostsBlock.module.css";
 
 type PostsBlockType = {
 	postsData: PostType[],
-	addPost: () => void,
 	newPostText: string,
-	updatePostText: (changedPostText: string) => void
+	dispatch: (action: ActionsTypes) => void
 }
 
 const PostsBlock: React.FC<PostsBlockType> = (props): JSX.Element => {
@@ -22,9 +22,8 @@ const PostsBlock: React.FC<PostsBlockType> = (props): JSX.Element => {
 	return (
 		<div className={'container'}>
 			<NewPost
-				addPost={props.addPost}
-				newPostText={props.newPostText}
-				updatePostText={props.updatePostText} />
+				dispatch={props.dispatch}
+				newPostText={props.newPostText} />
 			<hr />
 			<div className={cls.title}>My wall</div>
 			{postsList}
