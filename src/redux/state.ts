@@ -1,6 +1,6 @@
 import { v1 } from 'uuid';
-import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { MessageType } from '../components/Messages/Messages';
+import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 
 
@@ -20,15 +20,27 @@ export type StateType = {
 	profilePage: ProfilePageType,
 }
 
+type AddPostActionType = {
+	type: 'ADD-POST'
+}
+
+type UpdatePostTextActionType = {
+	type: 'UPDATE-POST-TEXT',
+	changedPostText: string
+}
+
+export type ActionsTypes = AddPostActionType | UpdatePostTextActionType;
+
 type StoreType = {
 	_state: StateType,
+	_callSubscriber: () => void,
+	subscribe: (observer: () => void) => void,
 	getState: () => StateType,
+	dispatch: (action: ActionsTypes) => void,
 	updatePostText: (changedPostText: string) => void,
 	addPost: () => void,
 	updateMessageText: (changedMessageText: string) => void,
-	addMessage: () => void,
-	_callSubscriber: () => void,
-	subscribe: (observer: () => void) => void
+	addMessage: () => void
 }
 
 export const store: StoreType = {
@@ -59,8 +71,17 @@ export const store: StoreType = {
 			newPostText: ''
 		}
 	},
+	_callSubscriber() {
+		console.log('state has changed');
+	},
+	subscribe(observer) {
+		this._callSubscriber = observer;
+	},
 	getState() {
 		return this._state
+	},
+	dispatch(action) {
+
 	},
 	updatePostText(changedPostText: string) {
 		this._state.profilePage.newPostText = changedPostText;
@@ -89,11 +110,6 @@ export const store: StoreType = {
 		this._state.messagesPage.messagesData.push(newMessage);
 		this._state.messagesPage.newMessageText = '';
 		this._callSubscriber();
-	},
-	_callSubscriber() {
-		console.log('state has changed');
-	},
-	subscribe(observer: () => void) {
-		this._callSubscriber = observer;
 	}
+
 }

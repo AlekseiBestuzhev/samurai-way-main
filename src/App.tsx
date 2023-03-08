@@ -1,14 +1,14 @@
-import React from 'react';
 import './App.css';
+import { FC } from 'react';
+import { StateType } from './redux/state';
+import { News } from './components/News/News';
 import Header from "./components/Header/Header";
+import { Music } from './components/Music/Music';
 import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
-import { Messages } from './components/Messages/Messages';
-import { News } from './components/News/News';
-import { BrowserRouter, HashRouter, Redirect, Route } from 'react-router-dom';
-import { Music } from './components/Music/Music';
 import { Settings } from './components/Settings/Settings';
-import { StateType } from './redux/state';
+import { Messages } from './components/Messages/Messages';
+import { HashRouter, Redirect, Route } from 'react-router-dom';
 
 type AppType = {
 	state: StateType,
@@ -18,7 +18,7 @@ type AppType = {
 	updateMessageText: (changedMessageText: string) => void
 }
 
-const App: React.FC<AppType> = (props): JSX.Element => {
+const App: FC<AppType> = (props): JSX.Element => {
 
 	const renderMessages = () => <Messages
 		addMessage={props.addMessage}
