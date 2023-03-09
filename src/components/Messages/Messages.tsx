@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessagesPageType } from '../../redux/state';
+import { ActionsTypes, MessagesPageType } from '../../redux/state';
 import { Dialog } from './Dialog/Dialog';
 import cls from './Messages.module.css'
 import { Message } from './Message/Message';
@@ -7,8 +7,7 @@ import { NewMessage } from './NewMessage/NewMessage';
 
 type MessagesType = {
 	messagesPage: MessagesPageType,
-	addMessage: () => void,
-	updateMessageText: (changedMessageText: string) => void
+	dispatch: (action: ActionsTypes) => void
 }
 
 export type MessageType = {
@@ -52,9 +51,8 @@ export const Messages: React.FC<MessagesType> = (props): JSX.Element => {
 						{/* <div ref={messagesEndRef}></div> */}
 					</div>
 					<NewMessage
-						newMessageText={props.messagesPage.newMessageText}
-						addMessage={props.addMessage}
-						updateMessageText={props.updateMessageText} />
+						dispatch={props.dispatch}
+						newMessageText={props.messagesPage.newMessageText} />
 				</div>
 			</div>
 		</div>

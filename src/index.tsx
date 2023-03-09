@@ -8,9 +8,7 @@ const renderEntrieTree = () => {
 
 	ReactDOM.render(
 		<App state={store.getState()}
-			addMessage={store.addMessage.bind(store)}
-			dispatch={store.dispatch.bind(store)}
-			updateMessageText={store.updateMessageText.bind(store)} />,
+			dispatch={store.dispatch.bind(store)} />,
 		document.getElementById('root')
 	)
 }

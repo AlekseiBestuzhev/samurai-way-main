@@ -1,23 +1,23 @@
 import { createRef, FC } from 'react';
+import { ActionsTypes } from '../../../redux/state';
 import cls from './NewMessage.module.css'
 
 type NewMessageType = {
-	addMessage: () => void,
 	newMessageText: string,
-	updateMessageText: (changedMessageText: string) => void
+	dispatch: (action: ActionsTypes) => void
 }
 
-export const NewMessage: FC<NewMessageType> = ({ addMessage, updateMessageText, newMessageText }): JSX.Element => {
+export const NewMessage: FC<NewMessageType> = ({ dispatch, newMessageText }): JSX.Element => {
 
 	const newMessageRef = createRef<HTMLTextAreaElement>();
 
 	const onChangeHandler = () => {
 		if (newMessageRef.current) {
-			updateMessageText(newMessageRef.current.value);
+			dispatch({ type: 'UPDATE-MESSAGE-TEXT', changedMessageText: newMessageRef.current.value });
 		}
 	}
 
-	const addMessageHandler = () => addMessage();
+	const addMessageHandler = () => dispatch({ type: 'ADD-MESSAGE' });
 
 	return (
 		<div className={cls.block}>

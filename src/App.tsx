@@ -12,17 +12,14 @@ import { HashRouter, Redirect, Route } from 'react-router-dom';
 
 type AppType = {
 	state: StateType,
-	addMessage: () => void,
-	dispatch: (action: ActionsTypes) => void,
-	updateMessageText: (changedMessageText: string) => void
+	dispatch: (action: ActionsTypes) => void
 }
 
 const App: FC<AppType> = (props): JSX.Element => {
 
 	const renderMessages = () => <Messages
-		addMessage={props.addMessage}
-		messagesPage={props.state.messagesPage}
-		updateMessageText={props.updateMessageText} />
+		dispatch={props.dispatch}
+		messagesPage={props.state.messagesPage} />
 	const renderProfile = () => <Profile
 		dispatch={props.dispatch}
 		profilePage={props.state.profilePage} />
