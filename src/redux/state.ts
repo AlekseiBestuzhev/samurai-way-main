@@ -24,12 +24,21 @@ type AddPostActionType = {
 	type: 'ADD-POST'
 }
 
+type AddMessageActionType = {
+	type: 'ADD-MESSAGE'
+}
+
 type UpdatePostTextActionType = {
 	type: 'UPDATE-POST-TEXT',
 	changedPostText: string
 }
 
-export type ActionsTypes = AddPostActionType | UpdatePostTextActionType;
+type UpdateMessageTextActionType = {
+	type: 'UPDATE-MESSAGE-TEXT',
+	changedMessageText: string
+}
+
+export type ActionsTypes = AddPostActionType | UpdatePostTextActionType | UpdateMessageTextActionType | AddMessageActionType;
 
 type StoreType = {
 	_state: StateType,
@@ -37,8 +46,6 @@ type StoreType = {
 	subscribe: (observer: () => void) => void,
 	getState: () => StateType,
 	dispatch: (action: ActionsTypes) => void,
-	updateMessageText: (changedMessageText: string) => void,
-	addMessage: () => void
 }
 
 export const store: StoreType = {
@@ -93,20 +100,19 @@ export const store: StoreType = {
 			this._state.profilePage.newPostText = '';
 			this._callSubscriber();
 		}
-	},
-	updateMessageText(changedMessageText: string) {
-		this._state.messagesPage.newMessageText = changedMessageText;
-		this._callSubscriber();
-	},
-	addMessage() {
-		const newMessage: MessageType = {
-			id: v1(),
-			text: this._state.messagesPage.newMessageText,
-			iSender: true
+		else if (action.type === 'UPDATE-MESSAGE-TEXT') {
+			this._state.messagesPage.newMessageText = action.changedMessageText;
+			this._callSubscriber();
 		}
-		this._state.messagesPage.messagesData.push(newMessage);
-		this._state.messagesPage.newMessageText = '';
-		this._callSubscriber();
+		else if (action.type === 'ADD-MESSAGE') {
+			const newMessage: MessageType = {
+				id: v1(),
+				text: this._state.messagesPage.newMessageText,
+				iSender: true
+			}
+			this._state.messagesPage.messagesData.push(newMessage);
+			this._state.messagesPage.newMessageText = '';
+			this._callSubscriber();
+		}
 	}
-
 }
