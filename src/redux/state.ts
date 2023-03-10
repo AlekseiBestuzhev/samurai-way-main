@@ -3,6 +3,10 @@ import { MessageType } from '../components/Messages/Messages';
 import { DialogType } from '../components/Messages/Dialog/Dialog';
 import { PostType } from '../components/Profile/PostsBlock/Post/Post';
 
+export const AddPostActionCreator = () => ({ type: 'ADD-POST' });
+export const AddMessageActionCreator = () => ({ type: 'ADD-MESSAGE' });
+export const UpdatePostTexActionCreator = (changedPostText: string) => ({ type: 'UPDATE-POST-TEXT', changedPostText: changedPostText });
+export const UpdateMessageTextActionCreator = (changedMessageText: string) => ({ type: 'UPDATE-MESSAGE-TEXT', changedMessageText: changedMessageText });
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
