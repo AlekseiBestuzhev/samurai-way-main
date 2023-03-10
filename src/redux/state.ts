@@ -8,12 +8,12 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 
-export const addPostActionCreator = (): AddPostActionType => ({ type: ADD_POST });
-export const addMessageActionCreator = (): AddMessageActionType => ({ type: ADD_MESSAGE });
-export const updatePostTexActionCreator = (newText: string): UpdatePostTextActionType => (
-	{ type: UPDATE_POST_TEXT, changedPostText: newText });
-export const updateMessageTextActionCreator = (newText: string): UpdateMessageTextActionType => (
-	{ type: UPDATE_MESSAGE_TEXT, changedMessageText: newText });
+export const addPostActionCreator = () => ({ type: ADD_POST } as const);
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE } as const);
+export const updatePostTexActionCreator = (newText: string) => (
+	{ type: UPDATE_POST_TEXT, changedPostText: newText } as const);
+export const updateMessageTextActionCreator = (newText: string) => (
+	{ type: UPDATE_MESSAGE_TEXT, changedMessageText: newText } as const);
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],
@@ -31,25 +31,8 @@ export type StateType = {
 	profilePage: ProfilePageType,
 }
 
-type AddPostActionType = {
-	type: 'ADD-POST'
-}
-
-type AddMessageActionType = {
-	type: 'ADD-MESSAGE'
-}
-
-type UpdatePostTextActionType = {
-	type: 'UPDATE-POST-TEXT',
-	changedPostText: string
-}
-
-type UpdateMessageTextActionType = {
-	type: 'UPDATE-MESSAGE-TEXT',
-	changedMessageText: string
-}
-
-export type ActionsTypes = AddPostActionType | UpdatePostTextActionType | UpdateMessageTextActionType | AddMessageActionType;
+export type ActionsTypes = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addMessageActionCreator> |
+	ReturnType<typeof updatePostTexActionCreator> | ReturnType<typeof updateMessageTextActionCreator>;
 
 type StoreType = {
 	_state: StateType,
