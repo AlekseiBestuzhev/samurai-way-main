@@ -1,5 +1,5 @@
 import { createRef, FC } from 'react';
-import { ActionsTypes } from '../../../redux/state';
+import { ActionsTypes, addMessageActionCreator, updateMessageTextActionCreator } from '../../../redux/state';
 import cls from './NewMessage.module.css'
 
 type NewMessageType = {
@@ -13,11 +13,12 @@ export const NewMessage: FC<NewMessageType> = ({ dispatch, newMessageText }): JS
 
 	const onChangeHandler = () => {
 		if (newMessageRef.current) {
-			dispatch({ type: 'UPDATE-MESSAGE-TEXT', changedMessageText: newMessageRef.current.value });
+			const currentValue = newMessageRef.current.value;
+			dispatch(updateMessageTextActionCreator(currentValue));
 		}
 	}
 
-	const addMessageHandler = () => dispatch({ type: 'ADD-MESSAGE' });
+	const addMessageHandler = () => dispatch(addMessageActionCreator());
 
 	return (
 		<div className={cls.block}>

@@ -8,10 +8,12 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 
-export const AddPostActionCreator = () => ({ type: ADD_POST });
-export const AddMessageActionCreator = () => ({ type: ADD_MESSAGE });
-export const UpdatePostTexActionCreator = (changedPostText: string) => ({ type: UPDATE_POST_TEXT, changedPostText: changedPostText });
-export const UpdateMessageTextActionCreator = (changedMessageText: string) => ({ type: UPDATE_MESSAGE_TEXT, changedMessageText: changedMessageText });
+export const addPostActionCreator = (): AddPostActionType => ({ type: ADD_POST });
+export const addMessageActionCreator = (): AddMessageActionType => ({ type: ADD_MESSAGE });
+export const updatePostTexActionCreator = (newText: string): UpdatePostTextActionType => (
+	{ type: UPDATE_POST_TEXT, changedPostText: newText });
+export const updateMessageTextActionCreator = (newText: string): UpdateMessageTextActionType => (
+	{ type: UPDATE_MESSAGE_TEXT, changedMessageText: newText });
 
 export type MessagesPageType = {
 	dialogsData: DialogType[],

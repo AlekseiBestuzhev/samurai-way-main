@@ -1,5 +1,5 @@
 import { createRef, FC } from 'react';
-import { ActionsTypes } from '../../../../redux/state';
+import { ActionsTypes, addPostActionCreator, updatePostTexActionCreator } from '../../../../redux/state';
 import cls from './NewPost.module.css'
 
 type NewPostType = {
@@ -11,12 +11,12 @@ export const NewPost: FC<NewPostType> = ({ dispatch, newPostText }): JSX.Element
 
 	const newPostRef = createRef<HTMLTextAreaElement>();
 
-	const addPostHandler = () => dispatch({ type: 'ADD-POST' });
+	const addPostHandler = () => dispatch(addPostActionCreator());
 
 	const onChangeHandler = () => {
 		if (newPostRef.current) {
 			const currentValue = newPostRef.current.value;
-			dispatch({ type: 'UPDATE-POST-TEXT', changedPostText: currentValue })
+			dispatch(updatePostTexActionCreator(currentValue));
 		}
 	}
 
